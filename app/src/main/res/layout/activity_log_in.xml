@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="vn.manroid.devchat.activity.LogInActivity">
+
+
+    <ImageView
+        android:background="@drawable/chat"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
+    <TextView
+        android:id="@+id/txtFontLogIn"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:text="DevChat"
+        style="@style/CustomFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:background="@drawable/custom_login"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/imgUser"
+            android:src="@drawable/user"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <EditText
+            android:textColor="#000"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#000"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:hint="Nhập email của bạn"
+            android:layout_alignBottom="@+id/imgUser"
+            android:layout_toRightOf="@id/imgUser"
+            android:background="@android:color/transparent"
+            android:id="@+id/edtAcc"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:src="@drawable/password"
+            android:layout_below="@+id/imgUser"
+            android:id="@+id/imgPass"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <EditText
+            android:textColor="#000"
+            android:textColorHint="#000"
+            android:singleLine="true"
+            android:layout_alignTop="@+id/imgPass"
+            android:padding="10dp"
+            android:hint="Mật khẩu của bạn"
+            android:inputType="textPassword"
+            android:layout_alignBottom="@+id/imgPass"
+            android:layout_toRightOf="@id/imgPass"
+            android:layout_below="@+id/edtAcc"
+            android:background="@android:color/transparent"
+            android:id="@+id/edtPass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:textColor="#000"
+            android:id="@+id/btnSignIn"
+            android:background="@drawable/custom_login"
+            android:text="Đăng nhập"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/edtPass"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true" />
+
+        <Button
+            android:textColor="#000"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/btnSignIn"
+            android:id="@+id/btnSignUp"
+            android:background="@drawable/custom_login"
+            android:text="Đăng ký"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/edtPass"
+            android:layout_width="110dp"
+            android:layout_height="50dp"/>
+
+    </RelativeLayout>
+    
+
+    <com.facebook.login.widget.LoginButton
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/btnFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+  
+
+</LinearLayout>

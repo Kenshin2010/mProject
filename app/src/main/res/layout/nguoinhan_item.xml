@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="right"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:gravity="center_vertical"
+        android:singleLine="false"
+        android:id="@+id/txtValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_receiver"
+        android:minHeight="50dp"
+        android:maxWidth="400dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <vn.manroid.devchat.custom.CustomView
+        android:id="@+id/imgAvatarChattingNguoiNhan"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/test"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/txtValue"
+        android:layout_toStartOf="@+id/txtValue" />
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_main"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="vn.manroid.devchat.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/MarqueeText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Ứng dụng chat hoàn toàn miễn phí - Kết nối - chia sẻ - trò chuyện "
+        android:textColor="#fff">
+
+    </TextView>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="60sp"
+        android:id="@+id/txtFontMain"
+        android:textColor="#fff"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:text="DevChat"
+        style="@style/CustomFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnStartChat"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:background="@drawable/custom_main"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="Bắt đầu chat"
+        android:layout_width="150dp"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/btnShare"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:background="@drawable/custom_main"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Chia sẻ"
+        android:layout_width="150dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/btnInfor"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:background="@drawable/custom_main"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Thông tin "
+        android:layout_width="150dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:background="@drawable/custom_main"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Log out"
+        android:layout_width="150dp"
+        android:layout_height="50dp" />
+
+
+</LinearLayout>
