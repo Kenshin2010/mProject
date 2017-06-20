@@ -12,10 +12,10 @@
     <!-- select color for textview -->
 
     <color name="xanhdatroi">#001eff</color>
-    <color name="xanhla">#00ff11</color>
+    <color name="mautim">#780480</color>
     <color name="maudo">#ff0707</color>
     <color name="mauhong">#ff00b7</color>
-    <color name="xanhnhat">#06f5fd</color>
+    <color name="maunau">#ff8d02</color>
     <color name="vang">#ffff00</color>
 
 </resources>

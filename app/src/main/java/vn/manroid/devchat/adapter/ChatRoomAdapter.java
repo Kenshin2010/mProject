@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import vn.manroid.devchat.R;
+import vn.manroid.devchat.data.LoadImageChatRoom;
 import vn.manroid.devchat.model.ChatRoomModel;
 
 /**
@@ -53,14 +54,18 @@ public class ChatRoomAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
 
-        if (view == null){
-            view = inflater.inflate(R.layout.chat_room_item, null);
-        }
+        view = inflater.inflate(R.layout.chat_room_item, null);
+
         ImageView imageView = (ImageView) view.findViewById(R.id.imgAvatarChattingRoom);
 
         TextView textView = (TextView) view.findViewById(R.id.txtTextChatRoom);
 
         ChatRoomModel md = getItem(position);
+
+        LoadImageChatRoom room = new LoadImageChatRoom();
+        room.execute(md.getPhotoUserChatRoom());
+
+        imageView.setImageBitmap(room.getAvatarChatRoom(position));
 
         if (md.getIdTenGuiRoom() == null)
             textView.setText("Người lạ" + " : \n" + md.getThongDiepRoom());
@@ -70,12 +75,12 @@ public class ChatRoomAdapter extends BaseAdapter {
         Random r = new Random();
         int num = r.nextInt(10);
 
-        switch (num){
+        switch (num) {
             case 0:
                 textView.setTextColor(view.getResources().getColor(R.color.xanhdatroi));
                 break;
             case 1:
-                textView.setTextColor(view.getResources().getColor(R.color.xanhla));
+                textView.setTextColor(view.getResources().getColor(R.color.mautim));
                 break;
             case 2:
                 textView.setTextColor(view.getResources().getColor(R.color.maudo));
@@ -84,7 +89,7 @@ public class ChatRoomAdapter extends BaseAdapter {
                 textView.setTextColor(view.getResources().getColor(R.color.mauhong));
                 break;
             case 4:
-                textView.setTextColor(view.getResources().getColor(R.color.xanhnhat));
+                textView.setTextColor(view.getResources().getColor(R.color.maunau));
                 break;
             case 5:
                 textView.setTextColor(view.getResources().getColor(R.color.vang));

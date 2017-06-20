@@ -1,5 +1,6 @@
 package vn.manroid.devchat.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,20 +52,21 @@ public class ChatRoomActivity extends AppCompatActivity
     private int count = 0;
     private Button btnSend, btnShowEmoji;
     private ListView lvChatRoom;
-
     private FirebaseUser me;
     public static ChatRoomModel chatRoomModel;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference reference;
-    private ChatRoomAdapter adapter;
+    public static ChatRoomAdapter adapter;
     private ArrayList<ChatRoomModel> mdRoom;
-
+    public static Activity activity;
     private String stringUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
+
+        activity = this;
 
         // khóa bàn phím
         //========================================================================//
@@ -130,16 +133,18 @@ public class ChatRoomActivity extends AppCompatActivity
         reference = firebaseDatabase.getReference("ListChatRoom");
         reference.orderByChild("ngay").addChildEventListener(onChildChanged);
 
-        adapter = new ChatRoomAdapter(new ArrayList<ChatRoomModel>(),getLayoutInflater());
+        adapter = new ChatRoomAdapter(new ArrayList<ChatRoomModel>(), getLayoutInflater());
 
         lvChatRoom.setAdapter(adapter);
 
         btnSend.setOnClickListener(onChattingRoom);
 
+        Toast.makeText(this, "Đang load cuộc hội thoại phòng chat ... !!!", Toast.LENGTH_SHORT).show();
+        
     }
 
 
-                // CREATE FIREBASE
+    // CREATE FIREBASE
     //============================================================================//
 
     private View.OnClickListener onChattingRoom = new View.OnClickListener() {
@@ -162,16 +167,16 @@ public class ChatRoomActivity extends AppCompatActivity
                 //================================================================================//
 
                 Uri uri = me.getPhotoUrl();
-                if (uri==null){
-                    stringUri="https://www.drupal.org/files/styles/drupalorg_user_picture/public/default-avatar.png?itok=qMUyWcaa";
-                }else {
+                if (uri == null) {
+                    stringUri = "https://www.drupal.org/files/styles/drupalorg_user_picture/public/default-avatar.png?itok=qMUyWcaa";
+                } else {
                     stringUri = uri.toString();
                 }
 
                 //======================================================//
 
-                ChatRoomModel md = new ChatRoomModel(me.getUid(),me.getDisplayName()
-                ,mEditEmojicon.getText().toString(), Calendar.getInstance().getTimeInMillis(),stringUri);
+                ChatRoomModel md = new ChatRoomModel(me.getUid(), me.getDisplayName()
+                        , mEditEmojicon.getText().toString(), Calendar.getInstance().getTimeInMillis(), stringUri);
 
                 reference.child(key).setValue(md);
                 mEditEmojicon.setText("");
@@ -188,28 +193,28 @@ public class ChatRoomActivity extends AppCompatActivity
         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
             try {
 
-                if (dataSnapshot != null){
+                if (dataSnapshot != null) {
                     FirebaseUser me = FirebaseAuth.getInstance().getCurrentUser();
-                    Uri uri = me.getPhotoUrl();
-                    if (uri==null){
-                        stringUri="https://www.drupal.org/files/styles/drupalorg_user_picture/public/default-avatar.png?itok=qMUyWcaa";
-                    }else {
-                        stringUri = uri.toString();
-                    }
+//                    Uri uri = me.getPhotoUrl();
+//                    stringUri = uri.toString();
                 }
 
                 HashMap<String, String> maps = (HashMap<String, String>) dataSnapshot.getValue();
 
-                chatRoomModel = new ChatRoomModel(maps.get("idGuiRoom")
-                        ,maps.get("idTenGuiRoom")
-                        ,maps.get("thongDiepRoom")
-                        ,0
-                        ,stringUri);
+                String photo = maps.get("photoUserChatRoom");
 
-                Log.d("chatroom","============="+chatRoomModel.getThongDiepRoom());
+                chatRoomModel = new ChatRoomModel(maps.get("idGuiRoom")
+                        , maps.get("idTenGuiRoom")
+                        , maps.get("thongDiepRoom")
+                        , 0
+                        , photo);
 
                 adapter.getListData().add(chatRoomModel);
                 adapter.notifyDataSetChanged();
+
+                Log.d("chatroom", "=============" + chatRoomModel.getThongDiepRoom());
+                Log.d("chatroom", "=============" + chatRoomModel.getPhotoUserChatRoom());
+
 
             } catch (Exception e) {
                 e.printStackTrace();
