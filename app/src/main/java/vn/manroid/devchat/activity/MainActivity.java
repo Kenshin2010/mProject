@@ -25,7 +25,7 @@ import vn.manroid.devchat.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView txtFont,txtMarqueeText;
-    private Button btnStartChat,btnShare,btnInfor,btnLogOut;
+    private Button btnStartChat,btnShare,btnInfor,btnLogOut,btnChatRoom;
     private Intent intent;
     private AlertDialog dialog;
 
@@ -45,11 +45,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         btnStartChat = (Button) findViewById(R.id.btnStartChat);
+        btnChatRoom = (Button) findViewById(R.id.btnChatRoom);
         btnInfor = (Button) findViewById(R.id.btnInfor);
         btnShare = (Button) findViewById(R.id.btnShare);
         btnLogOut = (Button) findViewById(R.id.btnLogOut);
 
         btnStartChat.setOnClickListener(this);
+        btnChatRoom.setOnClickListener(this);
         btnInfor.setOnClickListener(this);
         btnShare.setOnClickListener(this);
         btnLogOut.setOnClickListener(this);
@@ -61,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnStartChat:
 
                 intent = new Intent(MainActivity.this,ListUserActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnChatRoom:
+
+                intent = new Intent(MainActivity.this,ChatRoomActivity.class);
                 startActivity(intent);
                 break;
 

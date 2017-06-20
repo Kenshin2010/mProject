@@ -161,7 +161,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
             //user.setPhotoURL(us.getPhotoUrl());
 
-
             user.setPhotoURL("https://www.drupal.org/files/styles/drupalorg_user_picture/public/default-avatar.png?itok=qMUyWcaa");
             user.setUserID(us.getUid());
             user.setName("Người lạ");
@@ -261,7 +260,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog dialog;
 
     class RegisterTask extends AsyncTask<String,Void,Boolean>{
-
 
         @Override
         protected void onPreExecute() {

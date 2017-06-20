@@ -8,4 +8,14 @@
 
     <color name="horizontal_divider">#8f8f8f</color>
     <color name="horizontal_vertical">#8f8f8f</color>
+
+    <!-- select color for textview -->
+
+    <color name="xanhdatroi">#001eff</color>
+    <color name="xanhla">#00ff11</color>
+    <color name="maudo">#ff0707</color>
+    <color name="mauhong">#ff00b7</color>
+    <color name="xanhnhat">#06f5fd</color>
+    <color name="vang">#ffff00</color>
+
 </resources>

@@ -9,7 +9,7 @@
         android:id="@+id/imgAvatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/test" />
+        android:src="@drawable/userapp" />
 
     <ImageView
         android:layout_marginTop="5dp"

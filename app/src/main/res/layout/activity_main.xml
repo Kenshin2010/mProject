@@ -43,12 +43,24 @@
         android:layout_gravity="center_horizontal"
         android:textColor="#fff"
         android:background="@drawable/custom_main"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Bắt đầu chat"
         android:layout_width="150dp"
         android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/btnChatRoom"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fff"
+        android:background="@drawable/custom_main"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Phòng chat"
+        android:layout_width="150dp"
+        android:layout_height="50dp" />
+
     <Button
         android:id="@+id/btnShare"
         android:layout_gravity="center_horizontal"

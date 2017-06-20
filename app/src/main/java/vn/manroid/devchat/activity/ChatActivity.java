@@ -44,7 +44,9 @@ import vn.manroid.devchat.model.UserModel;
 
 import static vn.manroid.devchat.R.id.edtMessage;
 
-public class ChatActivity extends AppCompatActivity implements EmojiconGridFragment.OnEmojiconClickedListener, EmojiconsFragment.OnEmojiconBackspaceClickedListener {
+public class ChatActivity extends AppCompatActivity
+        implements EmojiconGridFragment.OnEmojiconClickedListener
+        ,EmojiconsFragment.OnEmojiconBackspaceClickedListener {
 
     private EmojiconEditText mEditEmojicon;
     private int count = 0;
@@ -166,7 +168,6 @@ public class ChatActivity extends AppCompatActivity implements EmojiconGridFragm
                     }
 
                     HashMap<String, String> maps = (HashMap<String, String>) dataSnapshot.getValue();
-
 
                     //long ngay = Long.valueOf(maps.get("ngay").toString()).longValue();
 
