@@ -47,8 +47,7 @@ public class ListUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_user);
 
-        if (android.os.Build.VERSION.SDK_INT > 9)
-        {
+        if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
@@ -102,7 +101,7 @@ public class ListUserActivity extends AppCompatActivity {
 
                     }
 
-                    adapter = new UserAdapter(getLayoutInflater(),ds);
+                    adapter = new UserAdapter(getLayoutInflater(), ds);
 
                     gvUser.setAdapter(adapter);
                 } catch (JsonSyntaxException e) {
@@ -136,6 +135,7 @@ public class ListUserActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     private boolean checkNetwork() {
         boolean available = false;
 
@@ -145,7 +145,7 @@ public class ListUserActivity extends AppCompatActivity {
         if (info != null &&
                 info.isAvailable() &&
                 info.isConnected()) {
-            //Chỉ biết là có tín hiệu mạng
+
             available = true;
         }
         return available;

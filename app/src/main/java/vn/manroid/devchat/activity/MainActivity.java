@@ -24,8 +24,8 @@ import vn.manroid.devchat.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView txtFont,txtMarqueeText;
-    private Button btnStartChat,btnShare,btnInfor,btnLogOut,btnChatRoom;
+    private TextView txtFont, txtMarqueeText;
+    private Button btnStartChat, btnShare, btnInfor, btnLogOut, btnChatRoom;
     private Intent intent;
     private AlertDialog dialog;
 
@@ -59,56 +59,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnStartChat:
 
-                intent = new Intent(MainActivity.this,ListUserActivity.class);
+                intent = new Intent(MainActivity.this, ListUserActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnChatRoom:
 
-                intent = new Intent(MainActivity.this,ChatRoomActivity.class);
+                intent = new Intent(MainActivity.this, ChatRoomActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.btnInfor:
-                Toast.makeText(this, "Ứng dụng được phát triển bởi Thư Nguyễn", Toast.LENGTH_SHORT).show();
-                String url = null;
-                Intent intent = null;
-                url = "https://www.facebook.com/profile.php?id=100007837202373";
-                intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                try {
-                    startActivity(intent);
-                } catch (ActivityNotFoundException e) {
-                    Toast.makeText(this, "Couldn't launch the bug reporting website", Toast.LENGTH_LONG).show();
-                }
+//                Toast.makeText(this, "Ứng dụng được phát triển bởi Thư Nguyễn", Toast.LENGTH_SHORT).show();
+//                String url = null;
+//                Intent intent = null;
+//                url = "https://www.facebook.com/profile.php?id=100007837202373";
+//                intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse(url));
+//                try {
+//                    startActivity(intent);
+//                } catch (ActivityNotFoundException e) {
+//                    Toast.makeText(this, "Couldn't launch the bug reporting website", Toast.LENGTH_LONG).show();
+//                }
                 break;
 
             case R.id.btnShare:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) // At least KitKat
-                {
-                    String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(this); // Need to change the build to API 19
-
-                    Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                    sendIntent.setType("text/plain");
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, "Chia sẻ ứng dụng cho bạn bè ....!!!");
-
-                    if (defaultSmsPackageName != null)// Can be null in case that there is no default, then the user would be able to choose
-                    // any app that support this intent.
-                    {
-                        sendIntent.setPackage(defaultSmsPackageName);
-                    }
-                    startActivity(sendIntent);
-
-                } else // For early versions, do what worked for you before.
-                {
-                    Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
-                    smsIntent.setType("vnd.android-dir/mms-sms");
-                    smsIntent.putExtra("address", "phoneNumber");
-                    smsIntent.putExtra("sms_body", "message");
-                    startActivity(smsIntent);
-                }
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) // At least KitKat
+//                {
+//                    String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(this); // Need to change the build to API 19
+//
+//                    Intent sendIntent = new Intent(Intent.ACTION_SEND);
+//                    sendIntent.setType("text/plain");
+//                    sendIntent.putExtra(Intent.EXTRA_TEXT, "Chia sẻ ứng dụng cho bạn bè ....!!!");
+//
+//                    if (defaultSmsPackageName != null)// Can be null in case that there is no default, then the user would be able to choose
+//                    // any app that support this intent.
+//                    {
+//                        sendIntent.setPackage(defaultSmsPackageName);
+//                    }
+//                    startActivity(sendIntent);
+//
+//                } else // For early versions, do what worked for you before.
+//                {
+//                    Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+//                    smsIntent.setType("vnd.android-dir/mms-sms");
+//                    smsIntent.putExtra("address", "phoneNumber");
+//                    smsIntent.putExtra("sms_body", "message");
+//                    startActivity(smsIntent);
+//                }
                 break;
 
             case R.id.btnLogOut:
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //Logout facebook
                     LoginManager.getInstance().logOut();
 
-                    intent = new Intent(v.getContext(),LogInActivity.class);
+                    intent = new Intent(v.getContext(), LogInActivity.class);
                     startActivity(intent);
 
                     finish();
@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             builder.setTitle("ChatDev");
             builder.setCancelable(false);
             builder.setMessage("Bạn muốn thoát khỏi ứng dụng ???");
-            //Thiết lập các button
             builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -155,9 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialog.dismiss();
                 }
             });
-            //Nạp giao diện
             dialog = builder.create();
-            //Hiển thị dialog lên
             dialog.show();
         }
         return super.onKeyDown(keyCode, event);

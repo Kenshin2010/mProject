@@ -51,7 +51,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Moi nguoi sua lai facebook
+
         FacebookSdk.setApplicationId("479285745752653");
         FacebookSdk.sdkInitialize(this);
         setContentView(R.layout.activity_log_in);
@@ -207,7 +207,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
-            //Login vào face của bạn thành công
+            //Login vào face thành công
             //Như tạo user lên firebase
             AuthCredential credential =
                     FacebookAuthProvider.getCredential(
@@ -348,7 +348,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         if (info != null &&
                 info.isAvailable() &&
                 info.isConnected()) {
-            //Chỉ biết là có tín hiệu mạng
+            //có tín hiệu mạng
             available = true;
         }
         return available;

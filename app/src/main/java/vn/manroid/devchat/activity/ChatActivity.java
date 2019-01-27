@@ -115,10 +115,10 @@ public class ChatActivity extends AppCompatActivity
 
         getSupportActionBar().setTitle("Chat với: " + friend.getName());
 
-        //Truy cập đến nút đó luôn
+        //Truy cập đến nút đó
         reference = firebaseDatabase.getReference("ListChatNEW");
 
-        //Lắng nghe xem việc thêm dữ liệu vào nút ListChat đã OK chưa
+        //Lắng nghe xem việc thêm dữ liệu vào nút ListChat
         reference.orderByChild("ngay").addChildEventListener(onChildChanged);
 
         //emoji ..............
@@ -179,9 +179,6 @@ public class ChatActivity extends AppCompatActivity
                             && me.getUid().equals(md.getIdNhan())) ||
                             (me.getUid().equals(md.getIdGui())
                                     && friend.getUserID().equals(md.getIdNhan()))) {
-                        //Tôi đang chat vơi ông Friend được chọn
-                        //Nếu id friend bằng với id gủi của bản ghi nhận về và tôi là người nhận
-                        //hoặc ngược lại
                         Log.i("Ngay", md.getTenGui() + " - " + md.getNgay() + " - " + md.getThongDiep());
                         adapter.getData().add(md);
                         adapter.notifyDataSetChanged();
@@ -228,7 +225,6 @@ public class ChatActivity extends AppCompatActivity
 
                 //Add từng bản ghi chat
                 FirebaseUser me = FirebaseAuth.getInstance().getCurrentUser();
-                //Sinh key tự động sử dụng sinh Guid (SQL Server), thử tìm firebase auto increament id
                 UUID uuid = UUID.randomUUID();
                 String key = uuid.toString();
 
@@ -246,7 +242,7 @@ public class ChatActivity extends AppCompatActivity
                         friend.getUserID(), friend.getName(), mEditEmojicon.getText().toString(),
                         Calendar.getInstance().getTimeInMillis(), stringUri);
                 reference.child(key).setValue(md);
-                //Thêm lên Server rồi
+                //Thêm lên Server
                 mEditEmojicon.setText("");
             } catch (Exception e) {
                 e.printStackTrace();
